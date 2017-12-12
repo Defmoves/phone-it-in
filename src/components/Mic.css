@@ -1,0 +1,23 @@
+.Mic {
+  background-color: #455A64;
+  height: 80px;
+  padding: 20px;
+  color: white;
+  position: relative;
+  top: 30px;
+}
+
+.Mic .box{
+  width: 60%;
+  height: 90%;
+  border: 3px #607D8B solid;
+  margin: 0 auto;
+  border-radius: 6px;
+}
+
+.Mic .box .dots{
+  width: 100%;
+  color: #607D8B;
+  font-size: 60px;
+  line-height: 0;
+}

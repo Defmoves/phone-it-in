@@ -1,0 +1,22 @@
+.Speaker {
+  background-color: #455A64;
+  height: 130px;
+  padding: 20px;
+  color: white;
+}
+
+.Speaker .box{
+  width: 90%;
+  height: 70%;
+  margin: 10px;
+  border: 3px #607D8B solid;
+  border-radius: 6px;
+}
+
+.Speaker .box .dots{
+  width: 100%;
+  color: #607D8B;
+  font-size: 60px;
+  line-height: 0;
+  margin: 13px 0 0 0;
+}
