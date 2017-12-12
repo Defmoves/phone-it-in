@@ -44,7 +44,7 @@ class Keypad extends Component {
          audioTwo.currentTime = 0;
          self.stop();
     })
-    this.props.onButtonClick('Background & aims')
+    this.props.onButtonClick('Background & Aims')
   }
 
   pressThree(){
@@ -66,7 +66,7 @@ class Keypad extends Component {
          audioFour.currentTime = 0;
          self.stop();
     })
-    this.props.onButtonClick('Conclusions & limitations')
+    this.props.onButtonClick('Conclusions & Limitations')
   }
 
   stop(){
