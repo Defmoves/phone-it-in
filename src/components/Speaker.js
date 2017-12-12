@@ -8,7 +8,7 @@ class Speaker extends Component {
       <header className="Speaker">
         <div className='box'>
           <div className='dots' >
-            ...
+            {this.props.title}
           </div>
         </div>
       </header>

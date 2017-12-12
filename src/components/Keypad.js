@@ -3,23 +3,70 @@ import {Button, Col, Row, Grid} from 'react-bootstrap';
 
 
 import './Keypad.css';
-import one from '../1.mp4';
+import a1 from '../1-intro.mp4';
+import a2  from '../2-background-aims.mp4';
+import a3 from '../3-methods-results.mp4';
+import a4 from '../4-conclusions-limitations.mp4';
 
-var audioOne = new Audio(one);
-var audioTwo = new Audio(one);
-var audioThree = new Audio(one);
-var audioFour = new Audio(one);
-var audioFive = new Audio(one);
-var audios = [ audioOne, audioTwo, audioThree, audioFour, audioFive ]
+var audioOne = new Audio(a1);
+var audioTwo = new Audio(a2);
+var audioThree = new Audio(a3);
+var audioFour = new Audio(a4);
+var audios = [ audioOne, audioTwo, audioThree, audioFour ]
 
 class Keypad extends Component {
 
+  constructor () {
+     super()
+     this.pressOne = this.pressOne.bind(this)
+     this.pressTwo = this.pressTwo.bind(this)
+     this.pressThree = this.pressThree.bind(this)
+     this.pressFour = this.pressFour.bind(this)
+     this.stop = this.stop.bind(this)
+   }
+
   pressOne(){
-    audioOne.play();
+    let self = this
+    this.stop()
+    audioOne.play()
+    audioOne.addEventListener("ended", function(){
+         audioOne.currentTime = 0;
+         self.stop();
+    })
+    this.props.onButtonClick('Introduction')
   }
 
   pressTwo(){
-    audioOne.pause();
+    let self = this
+    this.stop();
+    audioTwo.play();
+    audioTwo.addEventListener("ended", function(){
+         audioTwo.currentTime = 0;
+         self.stop();
+    })
+    this.props.onButtonClick('Background & aims')
+  }
+
+  pressThree(){
+    let self = this
+    this.stop();
+    audioThree.play()
+    audioThree.addEventListener("ended", function(){
+         audioThree.currentTime = 0;
+         self.stop();
+    })
+    this.props.onButtonClick('Methods & Results')
+  }
+
+  pressFour(){
+    let self = this
+    this.stop();
+    audioFour.play()
+    audioFour.addEventListener("ended", function(){
+         audioFour.currentTime = 0;
+         self.stop();
+    })
+    this.props.onButtonClick('Conclusions & limitations')
   }
 
   stop(){
@@ -27,6 +74,7 @@ class Keypad extends Component {
       audio.pause();
       audio.currentTime = 0;
     })
+    this.props.onButtonClick('...')
   }
 
   render() {
@@ -40,12 +88,12 @@ class Keypad extends Component {
               </Button>
             </Col>
             <Col xs={4} >
-              <Button bsStyle="info" bsSize="large" onClick={this.stop} >
+              <Button bsStyle="info" bsSize="large" onClick={this.pressTwo} >
                 2
               </Button>
             </Col>
             <Col xs={4}>
-              <Button bsStyle="info" bsSize="large">
+              <Button bsStyle="info" bsSize="large" onClick={this.pressThree} >
                 3
               </Button>
             </Col>
@@ -53,7 +101,7 @@ class Keypad extends Component {
 
           <Row>
             <Col xs={4}>
-              <Button bsStyle="info" bsSize="large">
+              <Button bsStyle="info" bsSize="large" onClick={this.pressFour}>
                 4
               </Button>
             </Col>

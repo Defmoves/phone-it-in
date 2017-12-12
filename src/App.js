@@ -11,10 +11,13 @@ class App extends Component {
   constructor () {
      super()
      this.onClick = this.onClick.bind(this)
+     this.state = {
+       title : '...'
+     }
    }
 
-   onClick () {
-     this.dialog.showAlert('Hello Dialog!')
+   onClick (value) {
+     this.setState({ title: value })
    }
 
    componentDidMount(){
@@ -39,8 +42,8 @@ class App extends Component {
           title='Project title'
           ref={(el) => { this.dialog = el }}
         />
-        <Speaker />
-        <Keypad />
+        <Speaker title={this.state.title} />
+        <Keypad onButtonClick={this.onClick} />
         <Mic />
       </div>
     );
